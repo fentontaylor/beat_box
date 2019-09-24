@@ -19,6 +19,7 @@ class NodeTest < Minitest::Test
   def test_can_set_value_for_next_node
     new_node = Node.new('bap')
     @node.next_node = new_node
+    
     assert_equal new_node, @node.next_node
   end
 
