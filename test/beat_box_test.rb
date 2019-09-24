@@ -3,7 +3,6 @@ require 'minitest/pride'
 require './lib/node'
 require './lib/linked_list'
 require './lib/beat_box'
-require 'pry'
 
 class BeatBoxTest < Minitest::Test
   def setup
@@ -31,8 +30,17 @@ class BeatBoxTest < Minitest::Test
 
     @beatbox.append("deep doo ditt")
     assert_equal 3, @beatbox.count
-    
+
     @beatbox.append("boom dee pow")
     assert_equal 6, @beatbox.count
+  end
+
+  def test_erase
+    @beatbox.append("deep doo ditt")
+    @beatbox.append("boom dee pow")
+
+    @beatbox.erase
+
+    assert_nil @beatbox.list.head
   end
 end
