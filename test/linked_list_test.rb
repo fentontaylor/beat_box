@@ -66,4 +66,37 @@ class LinkedListTest < Minitest::Test
     @list.append('bap')
     assert_equal 'beep boom bap', @list.to_string
   end
+
+  def test_prepend
+    @list.append('beep')
+    @list.append('boom')
+    @list.append('bap')
+
+    @list.prepend('shoop')
+
+    assert_equal 'shoop beep boom bap', @list.to_string
+  end
+
+  def test_insert
+    @list.append('beep')
+    @list.append('boom')
+    @list.append('bap')
+
+    @list.insert(1, 'bang')
+
+    assert_equal 'beep bang boom bap', @list.to_string
+  end
+
+  def test_find
+    @list.append('beep')
+    @list.append('boom')
+    @list.append('bap')
+    @list.insert(1, 'bang')
+    @list.prepend('shoop')
+
+    # 'shoop beep bang boom bap'
+
+    assert_equal 'bang', @list.find(2, 1)
+    assert_equal 'beep bang boom', @list.find(1, 3)
+  end
 end
