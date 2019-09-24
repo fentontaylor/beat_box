@@ -13,4 +13,8 @@ class BeatBox
   def count
     @list.count
   end
+
+  def play(speed: 150, voice: 'Alex')
+    `say -r #{speed} -v #{voice} #{@list.to_string}`
+  end
 end
