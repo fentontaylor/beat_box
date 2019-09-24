@@ -46,6 +46,13 @@ class LinkedList
     to_string.split[start..start + num - 1].join(' ')
   end
 
+  def pop
+    return '' if empty?
+    beat = last_node(@head).data
+    node_at(@head, count - 2).next_node = nil
+    beat
+  end
+
   private
 
   def new_node(data)

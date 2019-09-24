@@ -94,9 +94,18 @@ class LinkedListTest < Minitest::Test
     @list.insert(1, 'bang')
     @list.prepend('shoop')
 
-    # 'shoop beep bang boom bap'
-
     assert_equal 'bang', @list.find(2, 1)
     assert_equal 'beep bang boom', @list.find(1, 3)
+  end
+
+  def test_pop_removes_and_returns_last_data
+    assert_equal '', @list.pop
+
+    @list.append('beep')
+    @list.append('boom')
+    @list.append('bap')
+
+    assert_equal 'bap', @list.pop
+    assert_equal 'beep boom', @list.to_string
   end
 end
