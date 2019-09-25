@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/node'
 require './lib/linked_list'
-require 'pry'
 
 class LinkedListTest < Minitest::Test
   def setup
