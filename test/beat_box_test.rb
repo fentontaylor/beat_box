@@ -25,6 +25,13 @@ class BeatBoxTest < Minitest::Test
     assert_equal 'dee', @beatbox.list.head.next_node.data
   end
 
+  def test_prepend
+    @beatbox.append('shoop dee doo')
+    @beatbox.prepend('Ready go')
+
+    assert_equal 'Ready go shoop dee doo', @beatbox.list.to_string
+  end
+
   def test_count
     assert_equal 0, @beatbox.count
 

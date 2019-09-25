@@ -10,6 +10,11 @@ class BeatBox
     strings.each { |str| @list.append(str) }
   end
 
+  def prepend(string)
+    strings = string.split.reverse
+    strings.each { |str| @list.prepend(str) }
+  end
+
   def count
     @list.count
   end
