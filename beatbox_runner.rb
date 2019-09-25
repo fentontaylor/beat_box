@@ -34,14 +34,48 @@ def prepend_beats(beatbox)
   beatbox.prepend(beats)
 end
 
+def valid_speed?(speed)
+  speed > 0
+end
+
 def set_speed(beatbox)
   speed = 0
-  until speed > 0
+  until valid_speed?(speed)
     print 'How fast? Enter a number: '
     speed = gets.chomp.to_i.abs
-    print "\nInvalid speed. Try again.\n" unless speed > 0
+    print "\nInvalid speed. Try again.\n" unless valid_speed?(speed)
   end
   beatbox.speed = speed
+end
+
+def voice_options
+  [1,2,3,4]
+end
+
+def valid_voice?(voice)
+  voice_options.include? voice
+end
+
+def select_voice
+  print "Choose a BeatBoxer:\n" +
+  "  Gals: (1) Samantha  (2) Victoria\n" +
+  "  Guys: (3) Alex      (4) Fred\n" +
+  "\nSelection: "
+  gets.chomp.to_i
+end
+
+def set_voice(beatbox)
+  voice = 0
+  until valid_voice?(voice)
+    voice = select_voice
+    print 'Invalid selection. Try again.' unless valid_voice?(voice)
+  end
+  beatbox.voice = case voice
+    when 1 then 'Samantha'
+    when 2 then 'Victoria'
+    when 3 then 'Alex'
+    when 4 then 'Fred'
+  end
 end
 
 def play(beatbox)
