@@ -16,6 +16,16 @@ class BeatBoxTest < Minitest::Test
   def test_attributes
     assert_instance_of LinkedList, @beatbox.list
     assert_nil @beatbox.list.head
+    assert_equal 180, @beatbox.speed
+    assert_equal 'Alex', @beatbox.voice
+  end
+
+  def test_can_change_speed_and_voice
+    @beatbox.speed = 250
+    assert_equal 250, @beatbox.speed
+
+    @beatbox.voice = 'Samantha'
+    assert_equal 'Samantha', @beatbox.voice
   end
 
   def test_append
