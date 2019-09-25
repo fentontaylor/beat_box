@@ -4,7 +4,7 @@ class BeatBox
 
   def initialize
     @list = LinkedList.new
-    @speed = 180
+    @speed = 240
     @voice = 'Alex'
   end
 

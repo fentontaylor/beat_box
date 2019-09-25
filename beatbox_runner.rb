@@ -13,14 +13,14 @@ def menu
 end
 
 def new_beat(beatbox)
-  print 'Write your beat box: '
+  print "\nWrite your beat box: "
   beats = gets.chomp
   beatbox.erase
   beatbox.append(beats)
 end
 
 def add_beats
-  print 'Add these beats: '
+  print "\nAdd these beats: "
   gets.chomp
 end
 
@@ -41,7 +41,7 @@ end
 def set_speed(beatbox)
   speed = 0
   until valid_speed?(speed)
-    print 'How fast? Enter a number: '
+    print "\nHow fast? Enter a number: "
     speed = gets.chomp.to_i.abs
     print "\nInvalid speed. Try again.\n" unless valid_speed?(speed)
   end
@@ -57,7 +57,7 @@ def valid_voice?(voice)
 end
 
 def select_voice
-  print "Choose a BeatBoxer:\n" +
+  print "\nChoose a BeatBoxer:\n" +
   "  Gals: (1) Samantha  (2) Victoria\n" +
   "  Guys: (3) Alex      (4) Fred\n" +
   "\nSelection: "
@@ -68,7 +68,7 @@ def set_voice(beatbox)
   voice = 0
   until valid_voice?(voice)
     voice = select_voice
-    print 'Invalid selection. Try again.' unless valid_voice?(voice)
+    print "\nInvalid selection. Try again.\n" unless valid_voice?(voice)
   end
   beatbox.voice = case voice
     when 1 then 'Samantha'
@@ -80,9 +80,11 @@ end
 
 def play(beatbox)
   if beatbox.list.head
+    puts "\nPlaying beat: '#{beatbox.list.to_string}'"
+    puts "Speed: #{beatbox.speed}, Voice: #{beatbox.voice}"
     beatbox.play
   else
-    print "Need beats first!\n"
+    print "\nNeed beats first!\n"
     new_beat(beatbox)
   end
 end
