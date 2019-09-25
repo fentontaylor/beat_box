@@ -9,19 +9,19 @@ def menu
   "   Play Options: [bb - play beat] [s - set speed] [v - set voice]\n" +
   "   [q - quit]\n" +
   "\nSelection: "
-  gets.chomp.downcase
+  gets.strip.downcase
 end
 
 def new_beat(beatbox)
   print "\nWrite your beat box: "
-  beats = gets.chomp
+  beats = gets.strip
   beatbox.erase
   beatbox.append(beats)
 end
 
 def add_beats
   print "\nAdd these beats: "
-  gets.chomp
+  gets.strip
 end
 
 def append_beats(beatbox)
@@ -42,7 +42,7 @@ def set_speed(beatbox)
   speed = 0
   until valid_speed?(speed)
     print "\nHow fast? Enter a number: "
-    speed = gets.chomp.to_i.abs
+    speed = gets.strip.to_i.abs
     print "\nInvalid speed. Try again.\n" unless valid_speed?(speed)
   end
   beatbox.speed = speed
@@ -61,7 +61,7 @@ def select_voice
   "  Gals: (1) Samantha  (2) Victoria\n" +
   "  Guys: (3) Alex      (4) Fred\n" +
   "\nSelection: "
-  gets.chomp.to_i
+  gets.strip.to_i
 end
 
 def set_voice(beatbox)
